@@ -1,28 +1,26 @@
 import {
   HiSun,
   HiFire,
-  HiOutlineSparkles,
   HiOutlineShieldCheck,
-  HiOutlineRefresh,
   HiOutlineBeaker,
 } from 'react-icons/hi'
-import { GiWoodCabin, GiWaterDrop, GiHammerNails, GiRecycle } from 'react-icons/gi'
+import { FaLeaf, FaShieldAlt } from 'react-icons/fa'
+import { GiWaterDrop, GiHammerNails, GiRecycle } from 'react-icons/gi'
 import { MdDensityMedium } from 'react-icons/md'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import SectionHeading from './SectionHeading'
 import { features } from '../data/siteData'
 
 const iconMap = {
   sun: HiSun,
   fire: HiFire,
-  leaf: HiOutlineSparkles,
+  leaf: FaLeaf,
   hammer: GiHammerNails,
   density: MdDensityMedium,
   shield: HiOutlineShieldCheck,
   recycle: GiRecycle,
   water: GiWaterDrop,
   health: HiOutlineBeaker,
-  corrosion: GiWoodCabin,
+  corrosion: FaShieldAlt,
 }
 
 export default function Features() {

@@ -26,7 +26,6 @@ export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Products', href: '#products' },
   { label: 'Features', href: '#features' },
-  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -86,7 +85,7 @@ export const products = [
   },
   {
     id: 'wpc-frames',
-    name: 'Door Frames',
+    name: 'WPC Door Frames',
     description:
       'Premium WPC door frames with precise engineering. No warping, no swelling — reliable performance year after year.',
     image:

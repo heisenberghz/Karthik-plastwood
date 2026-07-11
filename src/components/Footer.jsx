@@ -1,5 +1,4 @@
 import { FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
-import Logo from './Logo'
 import { business, navLinks } from '../data/siteData'
 
 export default function Footer() {
@@ -10,7 +9,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Logo className="[&_span]:text-white [&_span:last-child]:text-white/60" />
+            <h3 className="font-display text-lg font-semibold tracking-tight text-white">
+              {business.name}
+            </h3>
             <p className="mt-4 font-body text-sm leading-relaxed text-white/60">
               Premium FRP fiber and WPC products — durable, affordable, and built for every project.
             </p>
