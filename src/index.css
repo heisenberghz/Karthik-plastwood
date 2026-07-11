@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+
+  --color-forest-950: #0d2818;
+  --color-forest-900: #1b4332;
+  --color-forest-800: #2d6a4f;
+  --color-forest-700: #40916c;
+  --color-forest-600: #52b788;
+
+  --color-cream-50: #fafaf8;
+  --color-cream-100: #f5f3ef;
+
+  --color-wood-200: #e8c9a0;
+  --color-wood-300: #d4a574;
+  --color-wood-400: #c4956a;
+  --color-wood-600: #8b6914;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-cream-50 font-body text-stone-800 antialiased;
+  }
+
+  ::selection {
+    @apply bg-forest-800/20 text-forest-900;
+  }
+}
+
+@layer utilities {
+  .bg-wood-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
