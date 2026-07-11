@@ -13,7 +13,7 @@ export default function Footer() {
               {business.name}
             </h3>
             <p className="mt-4 font-body text-sm leading-relaxed text-white/60">
-              Premium FRP fiber and WPC products — durable, affordable, and built for every project.
+              Premium FRP fiber and WPC products durable, affordable and built for every project.
             </p>
           </div>
 

@@ -25,6 +25,13 @@ const pillarIcons = {
   ),
 }
 
+const pillarDescriptions = {
+  Quality: 'Uncompromised standards in manufacturing and premium raw materials.',
+  Durability: 'Weatherproof, water proof, termite proof, and long-lasting designs.',
+  'Customer Satisfaction': 'Custom configurations tailored to Udupi and Karnataka builders.',
+  'Affordable Pricing': 'Direct manufacturing pricing that ensures affordability.',
+}
+
 export default function About() {
   const leftRef = useScrollReveal()
   const rightRef = useScrollReveal()
@@ -40,7 +47,8 @@ export default function About() {
           description="Two specialized brands under one roof — delivering premium fiber and WPC solutions across Karnataka."
         />
 
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+          {/* Left Column: Descriptions */}
           <div ref={leftRef} className="reveal space-y-6">
             <div className="rounded-2xl border border-stone-200/80 bg-white p-8 shadow-sm">
               <div className="mb-4 flex items-center gap-3">
@@ -75,30 +83,26 @@ export default function About() {
             </div>
           </div>
 
-          <div ref={rightRef} className="reveal">
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1581094794329-cd2c94a87c44?w=800&q=80"
-                alt="Manufacturing workshop with fiber and wood products"
-                className="aspect-[4/5] w-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/40 to-transparent" />
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {aboutContent.pillars.map((pillar) => (
-                <div
-                  key={pillar}
-                  className="flex items-center gap-3 rounded-xl border border-stone-200/60 bg-white px-4 py-3.5 shadow-sm"
-                >
-                  <div className="text-forest-700">{pillarIcons[pillar]}</div>
-                  <span className="font-body text-sm font-semibold text-stone-800">
-                    {pillar}
-                  </span>
+          {/* Right Column: Pillars Grid */}
+          <div ref={rightRef} className="reveal grid gap-4 sm:grid-cols-2">
+            {aboutContent.pillars.map((pillar) => (
+              <div
+                key={pillar}
+                className="flex flex-col gap-4 rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm hover:border-forest-800/20 transition-all duration-300"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-forest-800/10 text-forest-800">
+                  {pillarIcons[pillar]}
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h4 className="font-display text-base font-semibold text-forest-900">
+                    {pillar}
+                  </h4>
+                  <p className="mt-2 font-body text-sm leading-relaxed text-stone-500">
+                    {pillarDescriptions[pillar]}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
