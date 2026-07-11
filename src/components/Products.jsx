@@ -1,9 +1,49 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import SectionHeading from './SectionHeading'
+import { useState, useEffect } from 'react'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { products } from '../data/siteData'
+import SectionHeading from './SectionHeading'
 
 export default function Products() {
-  const gridRef = useScrollReveal()
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  const nextSlide = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setActiveIndex((prev) => (prev + 1) % products.length)
+  }
+
+  const prevSlide = () => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setActiveIndex((prev) => (prev - 1 + products.length) % products.length)
+  }
+
+  const goToSlide = (index) => {
+    if (isTransitioning || index === activeIndex) return
+    setIsTransitioning(true)
+    setActiveIndex(index)
+  }
+
+  useEffect(() => {
+    if (!isTransitioning) return
+    const timer = setTimeout(() => setIsTransitioning(false), 500)
+    return () => clearTimeout(timer)
+  }, [isTransitioning])
+
+  useEffect(() => {
+    if (hovered || isTransitioning) return
+
+    const interval = setInterval(() => {
+      setIsTransitioning(true)
+      setActiveIndex((prev) => (prev + 1) % products.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [hovered, isTransitioning])
+
+  const activeProduct = products[activeIndex]
 
   return (
     <section id="products" className="bg-white py-24 lg:py-32">
@@ -11,39 +51,95 @@ export default function Products() {
         <SectionHeading
           label="Our Products"
           title="Engineered for Every Project"
-          description="From FRP fiber solutions to WPC doors and wall panels — built for homes, builders, and commercial spaces."
+          description="Browse through our high-performance solutions — interactive installation showcase."
         />
 
-        <div ref={gridRef} className="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, i) => (
-            <article
-              key={product.id}
-              className="group overflow-hidden rounded-2xl border border-stone-200/80 bg-cream-50 transition-all duration-300 hover:-translate-y-1 hover:border-forest-800/20 hover:shadow-xl"
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/50 via-transparent to-transparent" />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-wider text-forest-800 backdrop-blur-sm">
-                  {product.brand}
-                </span>
+        <div
+          className="relative mx-auto max-w-5xl"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          {/* Main Slider Display */}
+          <div className="overflow-hidden rounded-3xl border border-stone-200/80 bg-cream-50 shadow-xl transition-all duration-300">
+            <div className="grid md:grid-cols-12 items-stretch">
+              {/* Left Column: Product Info */}
+              <div
+                className={`p-8 md:p-12 md:col-span-5 flex flex-col justify-center transition-opacity duration-500 ${
+                  isTransitioning ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
+                <div>
+                  <span className="inline-block text-xs font-semibold uppercase tracking-wider text-forest-700 bg-forest-800/10 px-3 py-1.5 rounded-full">
+                    {activeProduct.brand}
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl md:text-3xl font-semibold text-forest-900 leading-tight">
+                    {activeProduct.name}
+                  </h3>
+                  <p className="mt-4 font-body text-stone-600 text-sm md:text-base leading-relaxed">
+                    {activeProduct.description}
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <a
+                    href={`https://wa.me/+919845466428?text=Hello,%20I'm%20interested%20in%20learning%20more%20about%20your%20${encodeURIComponent(activeProduct.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-forest-800 px-5 py-3 font-body text-xs md:text-sm font-semibold text-white shadow-md transition-all hover:bg-forest-900 hover:shadow-lg"
+                  >
+                    Enquire Now
+                  </a>
+                </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-forest-900">
-                  {product.name}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-stone-600">
-                  {product.description}
-                </p>
+              {/* Right Column: Product Image */}
+              <div className="md:col-span-7 relative aspect-[4/3] md:aspect-auto md:h-[480px] overflow-hidden bg-stone-100">
+                <img
+                  src={activeProduct.image}
+                  alt={activeProduct.name}
+                  className={`h-full w-full object-cover transition-all duration-500 ${
+                    isTransitioning ? 'opacity-30 scale-95' : 'opacity-100 scale-100'
+                  }`}
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/20 via-transparent to-transparent" />
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            onClick={prevSlide}
+            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white border border-stone-200 text-forest-800 shadow-md transition-all hover:scale-105 hover:bg-forest-800 hover:text-white hover:border-forest-800 z-10 cursor-pointer"
+            aria-label="Previous slide"
+          >
+            <HiChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            onClick={nextSlide}
+            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white border border-stone-200 text-forest-800 shadow-md transition-all hover:scale-105 hover:bg-forest-800 hover:text-white hover:border-forest-800 z-10 cursor-pointer"
+            aria-label="Next slide"
+          >
+            <HiChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Dot Indicators */}
+          <div className="mt-8 flex justify-center gap-2">
+            {products.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => goToSlide(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === activeIndex ? 'bg-forest-800 w-8' : 'bg-stone-300 w-2.5 hover:bg-stone-400'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
