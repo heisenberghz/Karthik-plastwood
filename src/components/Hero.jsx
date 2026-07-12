@@ -65,19 +65,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 lg:block">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-white/80"
-          aria-label="Scroll to about section"
-        >
-          <span className="font-body text-[10px] uppercase tracking-widest">Scroll</span>
-          <div className="h-8 w-5 rounded-full border-2 border-current p-1">
-            <div className="mx-auto h-1.5 w-1 animate-bounce rounded-full bg-current" />
-          </div>
-        </a>
-      </div>
     </section>
   )
 }
