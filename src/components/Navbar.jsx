@@ -14,30 +14,30 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navLinks.map((link) => link.href.substring(1))
-      const scrollPosition = window.scrollY + 150 // offset for navbar
-
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
-        setActiveSection(sections[sections.length - 1])
-        return
-      }
-
-      let currentSection = 'home'
-      for (const section of sections) {
-        const el = document.getElementById(section)
-        if (el) {
-          if (scrollPosition >= el.offsetTop) {
-            currentSection = section
-          }
-        }
-      }
-      setActiveSection(currentSection)
+    const sections = navLinks.map((link) => link.href.substring(1))
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -75% 0px', // Trigger in the upper-middle region of viewport
+      threshold: 0,
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -47,7 +47,20 @@ export default function Navbar() {
     }
   }, [open])
 
-  const close = () => setOpen(false)
+  const handleNavLinkClick = (e, href) => {
+    e.preventDefault()
+    const targetId = href.substring(1)
+    const el = document.getElementById(targetId)
+    if (el) {
+      const offset = 80 // offset for sticky navbar height
+      const targetPosition = el.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      })
+      setOpen(false)
+    }
+  }
 
   return (
     <header
@@ -65,6 +78,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={(e) => handleNavLinkClick(e, link.href)}
                   className={`rounded-lg px-4 py-2 font-body text-sm transition-colors ${
                     isActive
                       ? scrolled
@@ -113,7 +127,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={close}
+                  onClick={(e) => handleNavLinkClick(e, link.href)}
                   className={`block rounded-xl px-4 py-3.5 font-body text-lg transition-colors ${
                     activeSection === link.href.substring(1)
                       ? 'bg-forest-800/10 font-bold text-forest-800'
