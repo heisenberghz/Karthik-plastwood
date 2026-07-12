@@ -52,27 +52,34 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || open
           ? 'bg-cream-50/95 shadow-sm backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`rounded-lg px-4 py-2 font-body text-sm transition-colors ${
-                  activeSection === link.href.substring(1)
-                    ? 'bg-forest-800/10 font-bold text-forest-800'
-                    : 'font-medium text-stone-700 hover:bg-forest-800/5 hover:text-forest-800'
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1)
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`rounded-lg px-4 py-2 font-body text-sm transition-colors ${
+                    isActive
+                      ? scrolled
+                        ? 'bg-forest-800/10 font-bold text-forest-800'
+                        : 'bg-white/15 font-bold text-white shadow-sm'
+                      : scrolled
+                        ? 'font-medium text-stone-700 hover:bg-forest-800/5 hover:text-forest-800'
+                        : 'font-medium text-stone-200 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex items-center gap-4 ml-auto md:ml-0">
@@ -86,7 +93,11 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-forest-900 transition-colors hover:bg-forest-800/5 md:hidden"
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden ${
+              scrolled || open
+                ? 'text-forest-900 hover:bg-forest-800/5'
+                : 'text-white hover:bg-white/10'
+            }`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
