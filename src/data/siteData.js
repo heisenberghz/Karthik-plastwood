@@ -1,7 +1,8 @@
 export const business = {
   name: 'Karthik Fiber Works & Karthik Plast Wood',
   shortName: 'Karthik Fiber & Plast Wood',
-  tagline: 'The Combination of Being Durable & Affordable',
+  tagline:
+    'Premium WPC & FRP Doors — The Combination of Being Durable & Affordable',
   whatsapp: '+919845466428',
   whatsappDisplay: '+91 98454 66428',
   phones: [

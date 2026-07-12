@@ -12,9 +12,9 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pb-20 pt-32 lg:px-8 lg:pt-40">
         <div className="max-w-2xl">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-wood-400" />
-            <span className="font-body text-xs font-medium uppercase tracking-widest text-white/90">
+          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-5 py-2 backdrop-blur-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-wood-400 animate-pulse" />
+            <span className="font-body text-sm font-semibold uppercase tracking-widest text-white">
               FRP & WPC Manufacturing
             </span>
           </div>
