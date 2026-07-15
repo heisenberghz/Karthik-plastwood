@@ -93,7 +93,7 @@ export default function Footer() {
             &copy; {year} {business.name}. All rights reserved.
           </p>
           <p className="font-body text-xs text-white/40">
-            Katapady, Udupi, Karnataka
+            Katapadi, Udupi, Karnataka
           </p>
         </div>
       </div>

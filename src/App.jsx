@@ -30,7 +30,7 @@ export default function App() {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Mahima Nest, Kurkal Subhasnagar",
-        "addressLocality": "Katapady, Udupi",
+        "addressLocality": "Katapadi, Udupi",
         "addressRegion": "Karnataka",
         "addressCountry": "IN"
       },

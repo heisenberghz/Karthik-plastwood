@@ -12,14 +12,14 @@ export const business = {
   address: {
     lines: [
       'Mahima Nest, Kurkal Subhasnagar',
-      'Katapady, Udupi, Karnataka',
+      'Katapadi, Udupi, Karnataka',
     ],
-    full: 'Mahima Nest, Kurkal Subhasnagar, Katapady, Udupi, Karnataka',
+    full: 'Mahima Nest, Kurkal Subhasnagar, Katapadi, Udupi, Karnataka',
   },
   mapsEmbed:
-    'https://maps.google.com/maps?q=Mahima+Nest,+Kurkal+Subhasnagar,+Katapady,+Udupi,+Karnataka&z=15&output=embed',
+    'https://maps.google.com/maps?q=Mahima+Nest,+Kurkal+Subhasnagar,+Katapadi,+Udupi,+Karnataka&z=15&output=embed',
   mapsDirections:
-    'https://www.google.com/maps/dir/?api=1&destination=Mahima+Nest,+Kurkal+Subhasnagar,+Katapady,+Udupi,+Karnataka',
+    'https://www.google.com/maps/dir/?api=1&destination=Mahima+Nest,+Kurkal+Subhasnagar,+Katapadi,+Udupi,+Karnataka',
 }
 
 export const navLinks = [
@@ -186,6 +186,6 @@ export const galleryImages = [
 export const seoConfig = {
   domain: 'karthikplastwood.vercel.app',
   get siteUrl() { return `https://${this.domain}`; },
-  description: 'Karthik Fiber Works & Karthik Plast Wood — manufacturers of premium FRP Fiber Doors, WPC Doors, Door Frames, Windows & PS Wall Panels in Katapady, Udupi, Karnataka.',
-  keywords: 'FRP doors, WPC doors, fiber doors, WPC frames, door frames, wall panels, Katapady, Udupi, Karnataka, Karthik Fiber Works, Karthik Plast Wood',
+  description: 'Karthik Fiber Works & Karthik Plast Wood — manufacturers of premium FRP Fiber Doors, WPC Doors, Door Frames, Windows & PS Wall Panels in Katapadi, Udupi, Karnataka.',
+  keywords: 'FRP doors, WPC doors, fiber doors, WPC frames, door frames, wall panels, Katapadi, Udupi, Karnataka, Karthik Fiber Works, Karthik Plast Wood',
 }

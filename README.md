@@ -1,6 +1,6 @@
 # Karthik Fiber Works & Karthik Plast Wood
 
-A premium, fully responsive business website for showcasing FRP fiber doors, frames, windows, WPC doors, frames, and PS wall panels manufactured in Katapady, Udupi, Karnataka.
+A premium, fully responsive business website for showcasing FRP fiber doors, frames, windows, WPC doors, frames, and PS wall panels manufactured in Katapadi, Udupi, Karnataka.
 
 ## Production Launch Checklist (Domain Updates)
 

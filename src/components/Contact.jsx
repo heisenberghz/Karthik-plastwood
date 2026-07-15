@@ -14,7 +14,7 @@ export default function Contact() {
         <SectionHeading
           label="Contact Us"
           title="Let's Build Something Durable"
-          description="Reach out for product enquiries, bulk orders, or to visit our facility in Katapady, Udupi."
+          description="Reach out for product enquiries, bulk orders, or to visit our facility in Katapadi, Udupi."
         />
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
