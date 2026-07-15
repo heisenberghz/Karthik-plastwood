@@ -44,17 +44,7 @@ export const products = [
     name: 'FRP Fiber Doors',
     description:
       'Lightweight yet incredibly strong. Resists moisture, termites, and corrosion — ideal for bathrooms, kitchens, and exterior use.',
-    image:
-      'https://images.unsplash.com/photo-1506377247377-2a5b3c15ec40?w=800&q=80',
-    brand: 'Fiber Works',
-  },
-  {
-    id: 'frp-frames',
-    name: 'FRP Door Frames',
-    description:
-      'Engineered fiber frames built for dimensional stability. Perfect companions to FRP doors in demanding environments.',
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80',
+    image: '/images/IMG-20260704-WA0008.jpg',
     brand: 'Fiber Works',
   },
   {
@@ -62,8 +52,7 @@ export const products = [
     name: 'Windows',
     description:
       'Custom fiber windows with excellent weather resistance and low maintenance. Available in designs for any project.',
-    image:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    image: '/images/IMG-20260704-WA0010.jpg',
     brand: 'Fiber Works',
   },
   {
@@ -71,8 +60,7 @@ export const products = [
     name: 'Customized Fiber Works',
     description:
       'Bespoke fiber solutions tailored to your requirements — from unique door designs to specialized architectural elements.',
-    image:
-      'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
+    image: '/images/IMG-20260704-WA0006.jpg',
     brand: 'Fiber Works',
   },
   {
@@ -80,8 +68,7 @@ export const products = [
     name: 'WPC Doors',
     description:
       'Wood Plastic Composite doors combining natural aesthetics with modern durability. Termite-proof and carpenter-friendly.',
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    image: '/images/IMG-20260711-WA0007.jpg',
     brand: 'Plast Wood',
   },
   {
@@ -89,17 +76,7 @@ export const products = [
     name: 'WPC Door Frames',
     description:
       'Premium WPC door frames with precise engineering. No warping, no swelling — reliable performance year after year.',
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-    brand: 'Plast Wood',
-  },
-  {
-    id: 'wall-panels',
-    name: 'PS Wall Panels',
-    description:
-      'Polystyrene wall panels for fast, clean interior finishing. Lightweight, easy to install, and perfect for modern spaces.',
-    image:
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
+    image: '/images/IMG-20260704-WA0011.jpg',
     brand: 'Plast Wood',
   },
 ]
