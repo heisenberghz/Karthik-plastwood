@@ -18,7 +18,7 @@ export default function Navbar() {
     
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -75% 0px', // Trigger in the upper-middle region of viewport
+      rootMargin: '-80px 0px -45% 0px', // Trigger when section crosses the upper half of screen
       threshold: 0,
     }
 
@@ -37,7 +37,24 @@ export default function Navbar() {
       if (el) observer.observe(el)
     })
 
-    return () => observer.disconnect()
+    // Guard to ensure proper highlight at scroll boundaries (top and bottom)
+    const handleScrollBoundary = () => {
+      if (window.scrollY < 50) {
+        setActiveSection('home')
+      } else if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80
+      ) {
+        setActiveSection(sections[sections.length - 1])
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollBoundary, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScrollBoundary)
+    }
   }, [])
 
   useEffect(() => {
