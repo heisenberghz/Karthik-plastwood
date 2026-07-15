@@ -1,16 +1,57 @@
-# React + Vite
+# Karthik Fiber Works & Karthik Plast Wood
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A premium, fully responsive business website for showcasing FRP fiber doors, frames, windows, WPC doors, frames, and PS wall panels manufactured in Katapady, Udupi, Karnataka.
 
-Currently, two official plugins are available:
+## Production Launch Checklist (Domain Updates)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When you purchase a custom domain (e.g., `https://karthikplastwood.com`), you need to update the placeholder URL (`https://karthikplastwood.vercel.app`) in the following **5 places** to ensure search engines index your site correctly:
 
-## React Compiler
+### 1. index.html
+Open [index.html](file:///d:/websites/karthik%20plastwood/index.html) and replace `https://karthikplastwood.vercel.app/` with your custom domain at:
+* **Line 24:** Canonical Tag
+  ```html
+  <link rel="canonical" href="https://yourcustomdomain.com/" />
+  ```
+* **Line 32:** Open Graph URL Tag
+  ```html
+  <meta property="og:url" content="https://yourcustomdomain.com/" />
+  ```
+* **Line 49:** JSON-LD Local Business Schema URL
+  ```json
+  "url": "https://yourcustomdomain.com/",
+  ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. robots.txt
+Open [public/robots.txt](file:///d:/websites/karthik%20plastwood/public/robots.txt) and replace the domain at:
+* **Line 4:** Sitemap Reference
+  ```text
+  Sitemap: https://yourcustomdomain.com/sitemap.xml
+  ```
 
-## Expanding the Oxlint configuration
+### 3. sitemap.xml
+Open [public/sitemap.xml](file:///d:/websites/karthik%20plastwood/public/sitemap.xml) and replace the domain at:
+* **Line 4:** Page Location
+  ```xml
+  <loc>https://yourcustomdomain.com/</loc>
+  ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## SEO Validation & Testing
+
+Once your website is deployed, verify your local business search schema setup:
+
+1. **Google Schema Markup Validator:**
+   Go to [Google Rich Results Test](https://search.google.com/test/rich-results) or the [Schema Markup Validator](https://validator.schema.org/). Paste your live homepage URL to check if the `LocalBusiness` data parses without warnings.
+2. **Google Search Console:**
+   Add your domain, verify ownership, and submit your `https://yourcustomdomain.com/sitemap.xml` URL to request prompt indexing.
+
+---
+
+## Development Commands
+
+Run the following commands in the project folder:
+
+* **Start Dev Server:** `npm run dev`
+* **Compile Build:** `npm run build`
+* **Lint Check:** `npm run lint`
