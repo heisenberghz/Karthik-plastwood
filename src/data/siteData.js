@@ -161,7 +161,7 @@ export const galleryImages = [
 ]
 
 export const seoConfig = {
-  domain: 'karthikplastwood.vercel.app',
+  domain: 'karthik-plastwood.vercel.app',
   get siteUrl() { return `https://${this.domain}`; },
   description: 'Karthik Fiber Works & Karthik Plast Wood — manufacturers of premium FRP Fiber Doors, WPC Doors, Door Frames, Windows & PS Wall Panels in Katapadi, Udupi, Karnataka.',
   keywords: 'FRP doors, WPC doors, fiber doors, WPC frames, door frames, wall panels, Katapadi, Udupi, Karnataka, Karthik Fiber Works, Karthik Plast Wood',

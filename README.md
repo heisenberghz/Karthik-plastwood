@@ -4,10 +4,10 @@ A premium, fully responsive business website for showcasing FRP fiber doors, fra
 
 ## Production Launch Checklist (Domain Updates)
 
-When you purchase a custom domain (e.g., `https://karthikplastwood.com`), you need to update the placeholder URL (`https://karthikplastwood.vercel.app`) in the following **5 places** to ensure search engines index your site correctly:
+When you purchase a custom domain (e.g., `https://karthik-plastwood.com`), you need to update the placeholder URL (`https://karthik-plastwood.vercel.app`) in the following **5 places** to ensure search engines index your site correctly:
 
 ### 1. index.html
-Open [index.html](file:///d:/websites/karthik%20plastwood/index.html) and replace `https://karthikplastwood.vercel.app/` with your custom domain at:
+Open [index.html](file:///d:/websites/karthik%20plastwood/index.html) and replace `https://karthik-plastwood.vercel.app/` with your custom domain at:
 * **Line 24:** Canonical Tag
   ```html
   <link rel="canonical" href="https://yourcustomdomain.com/" />
