@@ -79,6 +79,34 @@ export const products = [
     image: '/images/IMG-20260704-WA0011.jpg',
     brand: 'Plast Wood',
   },
+  {
+    id: 'premium-panel-door',
+    name: 'Premium Paneled Door',
+    description: 'Elegantly styled wood-grain textured panel doors suitable for main entrances and bedrooms.',
+    image: '/images/IMG-20260704-WA0001.jpg',
+    brand: 'Fiber Works',
+  },
+  {
+    id: 'frp-flush-bathroom-door',
+    name: 'FRP Flush Bathroom Door',
+    description: '100% waterproof and moisture-resistant flush doors designed for bathrooms and heavy damp usage.',
+    image: '/images/IMG-20260704-WA0002.jpg',
+    brand: 'Fiber Works',
+  },
+  {
+    id: 'molded-oval-wpc-door',
+    name: 'Molded Design WPC Door',
+    description: 'Precision molded WPC doors with classical oval and panel geometry, ideal for modern interiors.',
+    image: '/images/IMG-20260711-WA0010.jpg',
+    brand: 'Plast Wood',
+  },
+  {
+    id: 'ventilator-window-frame',
+    name: 'Heavy Duty Window Frame',
+    description: 'Strong, durable window frames built to withstand harsh weather, featuring standard safety grill support.',
+    image: '/images/IMG-20260704-WA0004.jpg',
+    brand: 'Fiber Works',
+  },
 ]
 
 export const features = [
