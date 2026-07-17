@@ -88,6 +88,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        {/* Desktop nav links */}
         <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1)
@@ -113,7 +114,8 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-4 ml-auto md:ml-0">
+        {/* Call Now button & Mobile menu toggle */}
+        <div className="flex items-center gap-4">
           <a
             href="tel:+919845466428"
             className="hidden rounded-lg bg-forest-800 px-5 py-2.5 font-body text-sm font-semibold text-white shadow-md transition-all hover:bg-forest-900 hover:shadow-lg md:inline-flex"
@@ -124,7 +126,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden ${
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden cursor-pointer ${
               scrolled || open
                 ? 'text-forest-900 hover:bg-forest-800/5'
                 : 'text-white hover:bg-white/10'
